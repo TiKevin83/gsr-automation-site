@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { GoMarkGithub } from 'react-icons/go'
 
 export async function getStaticProps(context) {
   const fs = require('fs');
@@ -28,6 +29,14 @@ export default function Home({ verificationImages }) {
       </Head>
 
       <main>
+        <div className="topBar">
+            <a className="cornerIcon" href="https://github.com/TiKevin83/pokemon/tree/gsr-test-automation/src/testing">
+              <GoMarkGithub /> Automation 
+            </a>
+            <a className="cornerIcon" href="https://github.com/TiKevin83/gsr-automation-site">
+              <GoMarkGithub /> Site Source
+            </a>
+        </div>
         <h1 className="title">
           GB TAS Verification as Test Automation for Gambatte Speedrun
         </h1>
@@ -37,7 +46,7 @@ export default function Home({ verificationImages }) {
         </p>
 
         <p>
-          Traditionally emulators have been tested via suites of test ROMs, a kind of micro-benchmark for specific console behaviors, in combination with regression testing around being able to boot games.
+          Traditionally emulators have been tested via suites of test ROMs, a kind of micro-benchmark for specific console behaviors, in combination with regression tests for basic booting of games.
           Implementations of this can be seen in daid's <a href="https://daid.github.io/GBEmulatorShootout/">GB Emulator Shootout</a> and <a href="https://sameboy.github.io/automation/">SameBoy's automation</a>, which provided an inspiration for this post.
           This approach generally succeeds at tracking the accuracy of emulators, but it has pitfalls in the context of TASing.
           Tool-Assisted Speedruns generally require decently accurate emulators to maintain proper comparison between newer, faster TASes and the ones they obselete.
@@ -72,13 +81,13 @@ export default function Home({ verificationImages }) {
         <div className="grid">
           {
             verificationImages.map((image, i) => (
-              <div key={i}>
-                <p className="imageTitle">{image}</p>
+              <div className="verification" key={i}>
+                <p className="imageTitle">{image.split('.')[0]}</p>
                 <img
                   src={`images/${image}`}
                   height={144}
                   width={160}
-                  alt={image}
+                  alt={image.split('.')[0]}
                 />
               </div>
             ))
@@ -109,40 +118,20 @@ export default function Home({ verificationImages }) {
           align-items: center;
         }
 
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        .topBar {
+          position: absolute;
+          top: 1rem;
+          left: 1rem;
         }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
+        
+        .cornerIcon {
+          margin-right: 1rem;
         }
 
         .title {
           margin: 0;
           line-height: 1.15;
-          font-size: 4rem;
+          font-size: 3rem;
         }
 
         .title,
@@ -159,15 +148,6 @@ export default function Home({ verificationImages }) {
           font-size: .5rem;
         }
 
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
         .grid {
           display: flex;
           align-items: center;
@@ -178,38 +158,8 @@ export default function Home({ verificationImages }) {
           margin-top: 3rem;
         }
 
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
+        .verification {
+          margin: .25rem;
         }
 
         @media (max-width: 600px) {

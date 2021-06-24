@@ -162,6 +162,10 @@ export default function Home({ verificationImages }) {
           margin: .25rem;
         }
 
+        .verification img {
+          image-rendering: pixelated;
+        }
+
         @media (max-width: 600px) {
           .grid {
             width: 100%;

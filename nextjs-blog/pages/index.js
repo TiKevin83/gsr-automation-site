@@ -69,7 +69,7 @@ export default function Home({ verificationImages }) {
         </p>
         <p>
           The below images are output from a continuous automation system taking the latest updates to Gambatte Speedrun and piping back in GBI input logs of known console verified TASes.
-          Gambatte Speedrun is currently "passing" 36 of 41 verified TASes below. 31 of the 36 TASes are being read from GBI input logs, with the 5 others coming from known syncing TASes using their original BizHawk bk2 instead of the GBI dump.
+          Gambatte Speedrun is currently "passing" 41 of 46 verified TASes below. 36 of the 41 passing TASes are being read from GBI input logs, with the 5 others coming from known syncing TASes using their original BizHawk bk2 instead of the GBI dump.
         </p>
         <p>
           Two failures are coming from the "Hammerin' Harry" games, which were originally made in GBHawk, BizHawk's other main accuracy-focused GB TASing core. Many GBHawk TASes are syncing with their GBI dumps in this manner, but GBHawk may implement some behavior that Gambatte Speedrun does not in these games.
@@ -126,6 +126,7 @@ export default function Home({ verificationImages }) {
         
         .cornerIcon {
           margin-right: 1rem;
+          text-decoration: none;
         }
 
         .title {

@@ -95,7 +95,7 @@ export default function Home({ verificationImages }) {
         </div>
       </main>
 
-      <style jsx>{`
+      <style>{`
         p {
           max-width: 1100px;
         }
@@ -175,7 +175,7 @@ export default function Home({ verificationImages }) {
         }
       `}</style>
 
-      <style jsx global>{`
+      <style>{`
         html,
         body {
           padding: 0;

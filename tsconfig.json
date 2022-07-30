@@ -20,7 +20,8 @@
     "baseUrl": ".",
     "paths": {},
     "types": [
-      "bun-types"
+      "bun-types",
+      "node"
     ],
     "incremental": true
   },
